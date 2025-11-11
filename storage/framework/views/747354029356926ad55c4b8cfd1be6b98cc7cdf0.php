@@ -19,7 +19,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     
-                    <form action="/courses" method="POST" class="max-w-xl mx-auto">
+                    <form action="<?php echo e(route('courses.store')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
                         <div class="mb-5">
                             <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Titutlo</label>

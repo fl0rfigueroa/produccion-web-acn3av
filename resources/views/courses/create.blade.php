@@ -1,5 +1,9 @@
 <x-app-layout : title="__('Crear curso')">
     <form action="">
-        <input type="text" name="" id="" placeholder="Ingrese el nombre del curso">
+<flux:input
+    :label="__('titulo')"
+    type="text"
+    placeholder="Ingrese el título del curso"
+/>
 </form>
 </x-app-layout>

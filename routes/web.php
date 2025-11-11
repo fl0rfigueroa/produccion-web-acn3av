@@ -48,10 +48,7 @@ Route::get('test', function (){
 });
 
 
-Route::view('courses/create', [
-CourseController::class,
-'create'
-]); 
+Route::get('courses/create', [CourseController::class, 'create']);
 
 
 Route::get('saludo/{nombre}', function ($nombre) {

@@ -16,6 +16,7 @@ class CourseController extends Controller
     {
             $courses = Course::select(['title', 'description', 'price'])
             ->paginate(5);
+
             $title = 'Aca están todos los cursos';
             return view('courses.index', [
                 'title' => $title,
@@ -44,7 +45,15 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        //remplaza a $post['title'];
+//con esta linea de codigo creamos un curso nuevo
+        Course::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]); //creo el curso y vuelvo al index
+    return redirect()->route('courses.index');
     }
 
     /**

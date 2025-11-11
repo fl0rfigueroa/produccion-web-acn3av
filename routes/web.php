@@ -11,11 +11,10 @@ Route::get('/', function () {
 });
 
 
-//cursos
-Route::get('courses',[
+Route::get('courses/index', [
     CourseController::class,
-    'index'
-])-> name('courses.index');
+     'index'
+     ])->name('courses.index');
 
 
 Route::get('courses/create',[

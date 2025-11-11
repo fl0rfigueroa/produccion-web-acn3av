@@ -14,7 +14,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-            $courses = Course::select(['title', 'description', 'price'])->paginate(5);
+            $courses = Course::select(['title', 'description', 'price'])
+            ->paginate(5);
+            
             $title = 'Aca están todos los cursos';
             return view('courses.index', [
                 'title' => $title,

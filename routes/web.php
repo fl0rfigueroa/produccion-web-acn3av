@@ -11,11 +11,11 @@ Route::get('/', function () {
 });
 
 
-
+//cursos
 Route::get('courses',[
     CourseController::class,
     'index'
-])-> name('courses.create');
+])-> name('courses.index');
 
 
 Route::get('courses/create',[
@@ -23,7 +23,10 @@ Route::get('courses/create',[
     'create'
 ])-> name('courses.create');
 
-
+Route::post('courses',[
+    CourseController::class,
+    'store'
+])-> name('courses.store');
 
 
 

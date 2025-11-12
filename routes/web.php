@@ -27,7 +27,12 @@ Route::post('courses',[
     'store'
 ])-> name('courses.store');
 
-
+//todo lo que vaya entre llaves es una variable , tipo cursos/1
+Route::get('courses/{course}', [
+CourseController::class,
+    'show'
+])-> name('courses.show');
+//llama al metodo show
 
 
 Route::get('/dashboard', function () {

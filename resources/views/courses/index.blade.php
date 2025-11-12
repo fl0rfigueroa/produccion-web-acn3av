@@ -26,9 +26,9 @@
                         ${{ $c->price }}
                     </td>
                     <td class="px-6 py-4">
-                        //(pasando el parámetro explícitamente)
             <x-produccion.enlace href="{{ route('courses.show', ['course=> $c->id ']) }}">ver</x-produccion.enlace>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

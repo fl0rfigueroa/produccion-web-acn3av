@@ -36,7 +36,6 @@
 
                     </td>
                     <td class="px-6 py-4">
-                        //(pasando el parámetro explícitamente)
             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.produccion.enlace','data' => ['href' => ''.e(route('courses.show', ['course=> $c->id '])).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('produccion.enlace'); ?>
@@ -52,6 +51,7 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
                     </td>
+                    
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>

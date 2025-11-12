@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-            $courses = Course::select(['title', 'description', 'price'])
+            $courses = Course::select(['id', 'title', 'description', 'price'])
             ->paginate(5);
 
             $title = 'Aca están todos los cursos';
@@ -46,6 +47,9 @@ class CourseController extends Controller
     public function store(Request $request)
     {
       
+        $request->validate ([
+        'title' => 'requiered|max:100']);
+
         //remplaza a $post['title'];
 //con esta linea de codigo creamos un curso nuevo
         Course::create([
@@ -89,7 +93,24 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+
+        $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'price' => 'numeric|max:1000000'
+        ], [
+            'title.required' => 'Che, te faltó el título del curso'
+        ]);
+
+        $course->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+
+        return redirect()
+            ->route('courses.index')
+            ->with('status', 'El curso se ha modificado correctamente.');
     }
 
     /**
